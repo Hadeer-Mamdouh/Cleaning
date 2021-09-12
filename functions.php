@@ -193,7 +193,9 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-require 'theme-update-checker/theme-update-checker.php';
+require_once( cl_ROOT . 'theme-update-checker/theme-update-checker.php');
+
+// require 'theme-update-checker/theme-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/Hadeer-Mamdouh/Cleaning',
 	__FILE__,
@@ -205,3 +207,7 @@ $myUpdateChecker->setBranch('main');
 
 //Optional: If you're using a private repository, specify the access token like this:
 $myUpdateChecker->setAuthentication('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');
+
+$theme = wp_get_theme();
+$update_version = $theme->update;
+var_dump($update_version);

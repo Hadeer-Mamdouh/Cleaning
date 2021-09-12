@@ -193,20 +193,15 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-//Initialize the update checker.
-/*require 'theme-updates/theme-update-checker.php';
-$example_update_checker = new ThemeUpdateChecker(
-    'cleaning-theme',
-    'https://sara-store.com/wp-content/themes/cleaning/info.json'
+require 'theme-update-checker/theme-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/Hadeer-Mamdouh/Cleaning',
+	__FILE__,
+	'cleaning'
 );
-*/
 
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
 
-//
-//
-//require (cl_ROOT . 'theme-update-checker/theme-update-checker.php');
-//$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-//	cl_ROOT . 'theme-update-checker/examples/theme.json'
-//	__FILE__, //Full path to the main plugin file or functions.php.
-//	'cleaning'
-//);
+//Optional: If you're using a private repository, specify the access token like this:
+$myUpdateChecker->setAuthentication('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');

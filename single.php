@@ -46,6 +46,8 @@
                             	
 
                                 <h2><a href="#"><?php the_title(); ?></a></h2>
+				<h2><a href="#">the new version update</a></h2>
+
 
                                  <p><?php the_content(); ?></p>
 
